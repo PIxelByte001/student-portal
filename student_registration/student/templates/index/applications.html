@@ -1,0 +1,27 @@
+{% extends 'index/extendedbase.html' %}
+{% load static %}
+
+{% block main %}
+
+<div class="col main-content">
+    <div class="p-3">
+        {% if applications == None %}
+            <p>You have not submitted the application</p>
+            <a class="btn btn-success" href="{% url 'application_form' %}">Proceed to application &rarr;</a>
+        {% else %}
+            <p>Your application was successfully submitted</p>
+            <a class="btn btn-success" href="{% url 'view_application' %}">View</a>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

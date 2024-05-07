@@ -1,0 +1,89 @@
+{% extends 'extendedbase.html' %}
+{% load static %}
+
+{% block main %}
+<div class="col" style="position: absolute; left: 280px; max-width: 1190px;">
+    <div class="p-3">
+        <div class="mt-5">
+            <h2>Sample Form</h2>
+            
+            <div class="card">
+                <div class="card-header">
+                    Personal Details
+                </div>
+                <div class="card-body">
+                    <div>
+                        <label for="name">Name:</label>
+                        {{application.Name}}
+                    </div>
+                    <div>
+                        <label for="Father's Name">Father's Name:</label>
+                        {{application.Mothers_Name}}
+                    </div>
+                    <div>
+                        <label for="Mother's Name">Mother's Name:</label>
+                        {{application.Fathers_Name}}
+                    </div>
+                    <div>
+                        <label for="address">Address</label>
+                        {{application.Address}}
+                    <div>
+                        <label for="mobile">Contact</label>
+                        {{application.Contact1}}
+                    </div>
+                    <div>
+                        <label for="mobile">Additional Contact</label>
+                        {{application.Contact2}}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Educational Details -->
+            <div class="card">
+                <div class="card-header">
+                    Educational Details
+                </div>
+                <div class="card-body">
+                    <div>
+                        <label for="10th">Class 10th percentage</label>
+                        {{application.Class_10}}
+                    </div>
+                    <div>
+                        <label for="12th">Class 12th percentage</label>
+                        {{application.Class_12}}
+                    </div>
+                    <div>
+                        <label for="cgpa">CGPA in higher education</label>
+                        {{application.UG_CGPA}}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Choices -->
+            <div class="card">
+                <div class="card-header">
+                    Course Choices
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Selected Option:</label>
+                        {{application.Course}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    Uploaded photo and signature
+                </div>
+                <div class="card-body">
+                    <img src='{{application.Photograph.url}}' height="100">
+
+                    <img src="{{application.Signature.url}}" height="100">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<center>
+    <H1 style="padding: 20px;">Student Data</H1>
+    <div style="width: 75%;">
+        <table class="table table-striped" border="2">
+            <thead class="table-dark">
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+            {% for student in students %}
+                <tr>
+                    <td>{{student.name}}</td>
+                    <td>{{student.email}}</td>
+                    <td>{{student.contact}}</td>
+                    <td>
+                        <div style="display: inline-block;">
+                            <form method="POST" action="{% url 'accept_application' student.email %}">
+                                {% csrf_token %}
+                                <button  class="btn btn-dark">Accept</button>
+                            </form>
+                        </div>
+
+                        <div style="display: inline-block;">
+                            <form method="POST" action="{% url 'view_application' student.email %}">
+                                {% csrf_token %}
+                                <button  class="btn btn-dark">View</button>
+                            </form>
+                        </div>
+
+                        <div style="display: inline-block;">
+                            <form method="POST" action="{% url 'reject_application' student.email %}">
+                                {% csrf_token %}
+                                <button  class="btn btn-dark" type="submit">Reject</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</center>
+
+{% endblock %}

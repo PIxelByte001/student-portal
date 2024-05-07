@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="form-container">
+        <h2 class="text-center mb-4">Login</h2>
+        <form action="{% url 'identify' %}" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input class="form-control" placeholder="Enter your email" type="email" name="email" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" required="" aria-describedby="id_username_helptext" id="id_username">
+            </div>
+            
+            <div class="mb-3">
+                <label for="id_password">Password</label>
+                <input class="form-control" placeholder="Enter password" type="password" name="password" required="" id="id_password">
+            </div>
+            
+            <center>
+                <button type="submit" class="btn btn-primary">Submit</button><br><br>
+                Not a member? <a href="{% url 'signup' %}">Sign up</a>
+            </center>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

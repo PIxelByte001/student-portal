@@ -1,0 +1,98 @@
+{% extends 'extendedbase.html' %}
+{% load static %}
+
+{% block main %}
+<div class="col" style="position: absolute; left: 280px; max-width: 1190px;">
+    <div class="p-3">
+        <div class="mt-5">
+            <h2>Sample Form</h2>
+            
+            <form action="{% url 'application_submit' %}" method="post">
+                {% csrf_token %}
+
+                <!-- Personal Details -->
+                <div class="card">
+                <div class="card-header">
+                    Personal Details
+                </div>
+                <div class="card-body">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div>
+                        <label for="Father's Name">Father's Name:</label>
+                        <input type="text" class="form-control" id="name" name="Fname">
+                    </div>
+                    <div>
+                        <label for="Mother's Name">Mother's Name:</label>
+                        <input type="text" class="form-control" id="name" name="Mname">
+                    </div>
+                    <div>
+                        <label for="address">Address</label>
+                        <input type="" class="form-control" id="address" name="address" required>
+                    </div>
+                    <div>
+                        <label for="mobile">Contact</label>
+                        <input type="tel" class="form-control" id="mobile" name="mobile1" required>
+                    </div>
+                    <div>
+                        <label for="mobile">Additional Contact</label>
+                        <input type="tel" class="form-control" id="mobile" name="mobile2">
+                    </div>
+                </div>
+                
+                <!-- Educational Details -->
+                <div class="card">
+                <div class="card-header">
+                    Educational Details
+                </div>
+                <div class="card-body">
+                    <div>
+                        <label for="10th">Class 10th percentage</label>
+                        <input type="number" class="form-control" name="class10" required>
+                    </div>
+                    <div>
+                        <label for="12th">Class 12th percentage</label>
+                        <input type="number" class="form-control" name="class12" required>
+                    </div>
+                    <div>
+                        <label for="cgpa">CGPA in higher education</label>
+                        <input type="number" class="form-control" name="cgpa" required>
+                    </div>
+                </div>
+
+                <!-- Course Choices -->
+                <div class="card">
+                <div class="card-header">
+                    Course Choices
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Select Option:</label>
+                        <select class="form-control" name="course" id="exampleFormControlSelect1">
+                            <option value="M.A. English">M.A. English</option>
+                            <option value="M.A. Hindi">M.A. Hindi</option>
+                            <option value="M.A. Psychology">M.A. Psychology</option>
+                            <option value="M.A. Environmental Studies">M.A. Environmental Studies</option>
+                            <option value="M.A. French Studies">M.A. French Studies</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        Upload photo and signature
+                    </div>
+                    <div class="card-body">
+                        <input type="file" name="photo" accept="image/*">
+                        <input type="file" name="sign" accept="image/*">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
